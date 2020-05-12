@@ -33,7 +33,15 @@ namespace Calculator
                 }
             }
             else if (op == 5) res = Math.Pow(x, y);
-            else res = Math.Sqrt(x);
+            else
+            {
+                if (x < 0)
+                { 
+                    MessageBox.Show("Number must be at least zero or more");
+                    res = x;
+                }
+                else res = Math.Sqrt(x);
+            }
             return res;
         }
             }

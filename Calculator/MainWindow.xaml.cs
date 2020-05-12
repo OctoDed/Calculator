@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,19 +30,31 @@ namespace Calculator
         private void ClearAll_Button_Click(object sender, RoutedEventArgs e)
         {
             this.Resault.Text = "";
+            ResClass.operation = 0;
+            ResClass.a = 0;
+            ResClass.b = 0;
         }
 
         private void Stepen_Click(object sender, RoutedEventArgs e)
         {
-            ResClass.operation = 5;
             try
             {
-                ResClass.a = Convert.ToDouble(this.Resault.Text);
-                this.Resault.Text = "";
+                if (ResClass.operation == 5)
+                {
+                    ResClass.b = Convert.ToDouble(this.Resault.Text);
+                    ResClass.a = ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b);
+                    this.Resault.Text = "";
+                }
+                else
+                {
+                    ResClass.a = Convert.ToDouble(this.Resault.Text);
+                    this.Resault.Text = "";
+                    ResClass.operation = 5;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("I spotted an error in your number\nYou better fix it");
+                MessageBox.Show("I spotted an error\nTry again or send a message on GitHub");
             }
         }
 
@@ -55,7 +68,7 @@ namespace Calculator
             }
             catch (Exception ex)
             {
-                MessageBox.Show("I spotted an error in your number\nYou better fix it");
+                MessageBox.Show("I spotted an error\nTry again or send a message on GitHub");
             }
         }
 
@@ -74,11 +87,21 @@ namespace Calculator
 
         private void Delit_Click(object sender, RoutedEventArgs e)
         {
-            ResClass.operation = 4;
+            
             try
             {
-                ResClass.a = Convert.ToDouble(this.Resault.Text);
-                this.Resault.Text = "";
+                if (ResClass.operation == 4)
+                {
+                    ResClass.b = Convert.ToDouble(this.Resault.Text);
+                    ResClass.a = ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b);
+                    this.Resault.Text = "";
+                }
+                else
+                {
+                    ResClass.a = Convert.ToDouble(this.Resault.Text);
+                    this.Resault.Text = "";
+                    ResClass.operation = 4;
+                }
             }
             catch (Exception ex)
             {
@@ -106,11 +129,21 @@ namespace Calculator
 
         private void Umnozh_Click(object sender, RoutedEventArgs e)
         {
-            ResClass.operation = 3;
+            
             try
             {
-                ResClass.a = Convert.ToDouble(this.Resault.Text);
-                this.Resault.Text = "";
+                if (ResClass.operation == 3)
+                {
+                    ResClass.b = Convert.ToDouble(this.Resault.Text);
+                    ResClass.a = ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b);
+                    this.Resault.Text = "";
+                }
+                else
+                {
+                    ResClass.a = Convert.ToDouble(this.Resault.Text);
+                    this.Resault.Text = "";
+                    ResClass.operation = 3;
+                }
             }
             catch (Exception ex)
             {
@@ -138,11 +171,21 @@ namespace Calculator
 
         private void Minus_Click(object sender, RoutedEventArgs e)
         {
-            ResClass.operation = 2;
+            
             try
             {
-                ResClass.a = Convert.ToDouble(this.Resault.Text);
-                this.Resault.Text = "";
+                if (ResClass.operation == 2)
+                {
+                    ResClass.b = Convert.ToDouble(this.Resault.Text);
+                    ResClass.a = ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b);
+                    this.Resault.Text = "";
+                }
+                else
+                {
+                    ResClass.a = Convert.ToDouble(this.Resault.Text);
+                    this.Resault.Text = "";
+                    ResClass.operation = 2;
+                }
             }
             catch (Exception ex)
             {
@@ -170,11 +213,21 @@ namespace Calculator
 
         private void Plus_Click(object sender, RoutedEventArgs e)
         {
-            ResClass.operation = 1;
+            
             try
             {
-                ResClass.a = Convert.ToDouble(this.Resault.Text);
-                this.Resault.Text = "";
+                if (ResClass.operation == 1)
+                {
+                    ResClass.b = Convert.ToDouble(this.Resault.Text);
+                    ResClass.a = ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b);
+                    this.Resault.Text = "";
+                }
+                else
+                {
+                    ResClass.a = Convert.ToDouble(this.Resault.Text);
+                    this.Resault.Text = "";
+                    ResClass.operation = 1;
+                }
             }
             catch (Exception ex)
             {
@@ -222,6 +275,7 @@ namespace Calculator
                 ResClass.b = Convert.ToDouble(this.Resault.Text);
                 if (ResClass.b == 0 && ResClass.operation == 4) MessageBox.Show("You can't do it because of 'Zero' number");
                 else this.Resault.Text = $"{ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b).ToString()}";
+                ResClass.operation = 0;
             }
             catch (Exception ex)
             {

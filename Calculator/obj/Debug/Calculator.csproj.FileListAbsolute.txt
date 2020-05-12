@@ -26,3 +26,4 @@ E:\учебная херобрань\програмки\Calculator\Calculator\ob
 E:\учебная херобрань\програмки\Calculator\Calculator\obj\Debug\Calculator.Properties.Resources.resources
 E:\учебная херобрань\програмки\Calculator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
 E:\учебная херобрань\програмки\Calculator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+E:\учебная херобрань\програмки\Calculator\Calculator\obj\Debug\Calculator.csprojAssemblyReference.cache
