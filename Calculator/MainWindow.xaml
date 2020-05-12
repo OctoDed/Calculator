@@ -1,0 +1,61 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="Calculator" Height="600" Width="454.992" ResizeMode="NoResize" Background="#FF90CEDC">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Grid Width="444">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ClearAll_Button" Grid.Column="0" Margin="10" Content="C" FontSize="50" Background="White" Click="ClearAll_Button_Click" Foreground="Black" BorderBrush="#FF8F8F8F" />
+                <TextBox Grid.Column="1" x:Name="Resault" Margin="10" BorderBrush="white" FontSize="40" IsEnabled="False" Background="White"/>
+            </Grid>
+                       
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button x:Name="Stepen" Margin="5" Width="100" Content="x^y" FontSize="40" Click="Stepen_Click" Background="White"/>
+            <Button x:Name="Square" Margin="5" Width="100" Content="sqrt(x)" FontSize="35" Click="Square_Click" Background="White"/>
+            <Button x:Name="ClearEnd" Margin="5" Width="100" Content="CE" FontSize="40" Click="ClearEnd_Click" Background="White"/>
+            <Button x:Name="Delit" Margin="5" Width="100" Content="/" FontSize="40" Click="Delit_Click" Background="White"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Button x:Name="Seven" Margin="5" Width="100" Content="7" FontSize="40" Click="Seven_Click" Background="White"/>
+            <Button x:Name="Eight" Margin="5" Width="100" Content="8" FontSize="40" Click="Eight_Click" Background="White"/>
+            <Button x:Name="Nine" Margin="5" Width="100" Content="9" FontSize="40" Click="Nine_Click" Background="White"/>
+            <Button x:Name="Umnozh" Margin="5" Width="100" Content="*" FontSize="40" Click="Umnozh_Click" Background="White"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <Button x:Name="Four" Margin="5" Width="100" Content="4" FontSize="40" Click="Four_Click" Background="White"/>
+            <Button x:Name="Five" Margin="5" Width="100" Content="5" FontSize="40" Click="Five_Click" Background="White"/>
+            <Button x:Name="Six" Margin="5" Width="100" Content="6" FontSize="40" Click="Six_Click" Background="White"/>
+            <Button x:Name="Minus" Margin="5" Width="100" Content="-" FontSize="40" Click="Minus_Click" Background="White"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Orientation="Horizontal">
+            <Button x:Name="One" Margin="5" Width="100" Content="1" FontSize="40" Click="One_Click" Background="White"/>
+            <Button x:Name="Two" Margin="5" Width="100" Content="2" FontSize="40" Click="Two_Click" Background="White"/>
+            <Button x:Name="Three" Margin="5" Width="100" Content="3" FontSize="40" Click="Three_Click" Background="White"/>
+            <Button x:Name="Plus" Margin="5" Width="100" Content="+" FontSize="40" Click="Plus_Click" Background="White"/>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Orientation="Horizontal">
+            <Button x:Name="Oposite" Margin="5" Width="100" Content="+/-" FontSize="40" Click="Oposite_Click" Background="White"/>
+            <Button x:Name="Zero" Margin="5" Width="100" Content="0" FontSize="40" Click="Zero_Click" Background="White"/>
+            <Button x:Name="Dot" Margin="5" Width="100" Content="," FontSize="40" Click="Dot_Click" Background="White"/>
+            <Button x:Name="Resault_Button" Margin="5" Width="100" Content="=" FontSize="40" Click="Resault_Button_Click" Background="White"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
