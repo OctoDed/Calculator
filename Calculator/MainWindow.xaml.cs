@@ -61,11 +61,13 @@ namespace Calculator
 
         private void Square_Click(object sender, RoutedEventArgs e)
         {
-            ResClass.operation = 6;
             try
             {
+                ResClass.operation = 6;
                 ResClass.a = Convert.ToDouble(this.Resault.Text);
                 this.Resault.Text = $"{ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b).ToString()}";
+                this.Zero.IsEnabled = true;
+                if (!this.Resault.Text.Contains(',')) this.Dot.IsEnabled = true;
             }
             catch (Exception ex)
             {
@@ -97,12 +99,16 @@ namespace Calculator
                     ResClass.b = Convert.ToDouble(this.Resault.Text);
                     ResClass.a = ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b);
                     this.Resault.Text = "";
+                    this.Dot.IsEnabled = true;
+                    this.Zero.IsEnabled = true;
                 }
                 else
                 {
                     ResClass.a = Convert.ToDouble(this.Resault.Text);
                     this.Resault.Text = "";
                     ResClass.operation = 4;
+                    this.Dot.IsEnabled = true;
+                    this.Zero.IsEnabled = true;
                 }
             }
             catch (Exception ex)
@@ -114,19 +120,43 @@ namespace Calculator
         private void Seven_Click(object sender, RoutedEventArgs e)
         {
             if (this.Resault.Text.Length == 12) MessageBox.Show("Can't count\nThis number is too big");
-            else this.Resault.Text = $"{this.Resault.Text}7";
+            else
+            {
+                if (ResClass.operation == 0)
+                {
+                    this.Resault.Text = "7";
+                    ResClass.operation = 7;
+                }
+                else this.Resault.Text = $"{this.Resault.Text}7";
+            }
         }
 
         private void Eight_Click(object sender, RoutedEventArgs e)
         {
             if (this.Resault.Text.Length == 12) MessageBox.Show("Can't count\nThis number is too big");
-            else this.Resault.Text = $"{this.Resault.Text}8";
+            else
+            {
+                if (ResClass.operation == 0)
+                {
+                    this.Resault.Text = "8";
+                    ResClass.operation = 7;
+                }
+                else this.Resault.Text = $"{this.Resault.Text}8";
+            }
         }
 
         private void Nine_Click(object sender, RoutedEventArgs e)
         {
             if (this.Resault.Text.Length == 12) MessageBox.Show("Can't count\nThis number is too big");
-            else this.Resault.Text = $"{this.Resault.Text}9";
+            else
+            {
+                if (ResClass.operation == 0)
+                {
+                    this.Resault.Text = "9";
+                    ResClass.operation = 7;
+                }
+                else this.Resault.Text = $"{this.Resault.Text}9";
+            }
         }
 
         private void Umnozh_Click(object sender, RoutedEventArgs e)
@@ -139,12 +169,16 @@ namespace Calculator
                     ResClass.b = Convert.ToDouble(this.Resault.Text);
                     ResClass.a = ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b);
                     this.Resault.Text = "";
+                    this.Dot.IsEnabled = true;
+                    this.Zero.IsEnabled = true;
                 }
                 else
                 {
                     ResClass.a = Convert.ToDouble(this.Resault.Text);
                     this.Resault.Text = "";
                     ResClass.operation = 3;
+                    this.Dot.IsEnabled = true;
+                    this.Zero.IsEnabled = true;
                 }
             }
             catch (Exception ex)
@@ -156,19 +190,43 @@ namespace Calculator
         private void Four_Click(object sender, RoutedEventArgs e)
         {
             if (this.Resault.Text.Length == 12) MessageBox.Show("Can't count\nThis number is too big");
-            else this.Resault.Text = $"{this.Resault.Text}4";
+            else
+            {
+                if (ResClass.operation == 0)
+                {
+                    this.Resault.Text = "4";
+                    ResClass.operation = 7;
+                }
+                else this.Resault.Text = $"{this.Resault.Text}4";
+            }
         }
 
         private void Five_Click(object sender, RoutedEventArgs e)
         {
             if (this.Resault.Text.Length == 12) MessageBox.Show("Can't count\nThis number is too big");
-            else this.Resault.Text = $"{this.Resault.Text}5";
+            else
+            {
+                if (ResClass.operation == 0)
+                {
+                    this.Resault.Text = "5";
+                    ResClass.operation = 7;
+                }
+                else this.Resault.Text = $"{this.Resault.Text}5";
+            }
         }
 
         private void Six_Click(object sender, RoutedEventArgs e)
         {
             if (this.Resault.Text.Length == 12) MessageBox.Show("Can't count\nThis number is too big");
-            else this.Resault.Text = $"{this.Resault.Text}6";
+            else
+            {
+                if (ResClass.operation == 0)
+                {
+                    this.Resault.Text = "6";
+                    ResClass.operation = 7;
+                }
+                else this.Resault.Text = $"{this.Resault.Text}6";
+            }
         }
 
         private void Minus_Click(object sender, RoutedEventArgs e)
@@ -181,12 +239,16 @@ namespace Calculator
                     ResClass.b = Convert.ToDouble(this.Resault.Text);
                     ResClass.a = ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b);
                     this.Resault.Text = "";
+                    this.Dot.IsEnabled = true;
+                    this.Zero.IsEnabled = true;
                 }
                 else
                 {
                     ResClass.a = Convert.ToDouble(this.Resault.Text);
                     this.Resault.Text = "";
                     ResClass.operation = 2;
+                    this.Dot.IsEnabled = true;
+                    this.Zero.IsEnabled = true;
                 }
             }
             catch (Exception ex)
@@ -198,19 +260,43 @@ namespace Calculator
         private void One_Click(object sender, RoutedEventArgs e)
         {
             if (this.Resault.Text.Length == 12) MessageBox.Show("Can't count\nThis number is too big");
-            else this.Resault.Text = $"{this.Resault.Text}1";
+            else
+            {
+                if(ResClass.operation==0)
+                {
+                    this.Resault.Text="1";
+                    ResClass.operation = 7;
+                }
+                else this.Resault.Text = $"{this.Resault.Text}1";
+            }
         }
 
         private void Two_Click(object sender, RoutedEventArgs e)
         {
-            if (this.Resault.Text.Length == 12) MessageBox.Show("Can't count\nThis number is too big"); 
-            else this.Resault.Text = $"{this.Resault.Text}2";
+            if (this.Resault.Text.Length == 12) MessageBox.Show("Can't count\nThis number is too big");
+            else 
+            {
+                if (ResClass.operation == 0)
+                {
+                    this.Resault.Text = "2";
+                    ResClass.operation = 7;
+                }
+                else this.Resault.Text = $"{this.Resault.Text}2";
+            }
         }
 
         private void Three_Click(object sender, RoutedEventArgs e)
         {
-            if (this.Resault.Text.Length == 12) MessageBox.Show("Can't count\nThis number is too big"); 
-            else this.Resault.Text = $"{this.Resault.Text}3";
+            if (this.Resault.Text.Length == 12) MessageBox.Show("Can't count\nThis number is too big");
+            else
+            {
+                if (ResClass.operation == 0)
+                {
+                    this.Resault.Text = "3";
+                    ResClass.operation = 7;
+                }
+                else this.Resault.Text = $"{this.Resault.Text}3";
+            }
         }
 
         private void Plus_Click(object sender, RoutedEventArgs e)
@@ -223,12 +309,16 @@ namespace Calculator
                     ResClass.b = Convert.ToDouble(this.Resault.Text);
                     ResClass.a = ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b);
                     this.Resault.Text = "";
+                    this.Dot.IsEnabled = true;
+                    this.Zero.IsEnabled = true;
                 }
                 else
                 {
                     ResClass.a = Convert.ToDouble(this.Resault.Text);
                     this.Resault.Text = "";
                     ResClass.operation = 1;
+                    this.Dot.IsEnabled = true;
+                    this.Zero.IsEnabled = true;
                 }
             }
             catch (Exception ex)
@@ -269,7 +359,11 @@ namespace Calculator
                 else if (this.Resault.Text.Contains('0') && this.Resault.Text.Length == 1) this.Zero.IsEnabled = false;
                 else
                 {
-                    this.Resault.Text = $"{this.Resault.Text}0";
+                    if (ResClass.operation == 0)
+                    {
+                        this.Resault.Text = "0";
+                    }
+                    else this.Resault.Text = $"{this.Resault.Text}0";
                 }
             }
             catch (Exception ex)
@@ -283,6 +377,7 @@ namespace Calculator
             this.Resault.Text = $"{this.Resault.Text},";
             this.Dot.IsEnabled = false;
             this.Zero.IsEnabled = true;
+            
         }
 
         private void Resault_Button_Click(object sender, RoutedEventArgs e)
@@ -293,11 +388,26 @@ namespace Calculator
                 if (ResClass.b == 0 && ResClass.operation == 4) MessageBox.Show("You can't do it because of 'Zero' number");
                 else
                 {
-                    ResClass.Resault = ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b);
-                    
-                    this.Resault.Text = $"{ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b).ToString()}";
+                    ResClass.Resault_copy = ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b).ToString();
+                    if (ResClass.Resault_copy.Length > 12 && ResClass.Resault_copy.Contains(',') == true)
+                    {
+                        while (ResClass.Resault_copy.Contains(','))
+                        {
+                            ResClass.Resault_copy = ResClass.Resault_copy.Remove(ResClass.Resault_copy.Length - 1);
+                            ResClass.lenth = ResClass.Resault_copy.Length;
+                        }
+                        this.Resault.Text = $"{Math.Round(ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b), 12 - ResClass.lenth)}";
+                    }
+                    else if (ResClass.Resault_copy.Length > 12 && ResClass.Resault_copy.Contains(',') == false)
+                    {
+                        ResClass.Resault = ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b);
+                        this.Resault.Text = $"{Math.Round(ResClass.Resault * Math.Pow(10, -(ResClass.Resault_copy.Length - 1)), 2)}E+{ResClass.Resault_copy.Length - 1}";
+                    }
+                    else this.Resault.Text = $"{ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b).ToString()}";
                 }
                 ResClass.operation = 0;
+                this.Dot.IsEnabled = true;
+                this.Zero.IsEnabled = true;
             }
             catch (Exception ex)
             {
@@ -307,7 +417,8 @@ namespace Calculator
     }
 }
 
-//this.Resault.Text = $"{ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b).ToString()}"
+//ResClass.Resault = ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b);
+//this.Resault.Text = $"{ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b).ToString()}";
 
 /*ResClass.Resault_copy = ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b).ToString();
                     if (ResClass.Resault_copy.Length > 12 && ResClass.Resault_copy.Contains(',') == true)
@@ -320,3 +431,6 @@ namespace Calculator
                         this.Resault.Text = $"{Math.Round(ResClass.Resault * Math.Pow(10, -(ResClass.Resault_copy.Length - 1)), 2)}*E{ResClass.Resault_copy.Length - 1}";
                     }
                     else this.Resault.Text = $"{ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b).ToString()}";*/
+
+
+//if (this.Resault.Text.Length < 1 && ResClass.operation == 0) ResClass.operation = 7;
