@@ -30,6 +30,7 @@ namespace Calculator
         private void ClearAll_Button_Click(object sender, RoutedEventArgs e)
         {
             this.Resault.Text = "";
+            this.Dot.IsEnabled = true;
             ResClass.operation = 0;
             ResClass.a = 0;
             ResClass.b = 0;
@@ -78,6 +79,7 @@ namespace Calculator
             {
                 ResClass.Resault_copy = this.Resault.Text;
                 this.Resault.Text = $"{ResClass.Resault_copy.Remove(this.Resault.Text.Length - 1)}";
+                if (!this.Resault.Text.Contains(',')) this.Dot.IsEnabled = true;
             }
             catch (Exception ex)
             {
@@ -260,12 +262,27 @@ namespace Calculator
 
         private void Zero_Click(object sender, RoutedEventArgs e)
         {
-            this.Resault.Text = $"{this.Resault.Text}0";
+            
+            try
+            {
+                if (this.Resault.Text.Length == 12) MessageBox.Show("Can't count\nThis number is too big");
+                else if (this.Resault.Text.Contains('0') && this.Resault.Text.Length == 1) this.Zero.IsEnabled = false;
+                else
+                {
+                    this.Resault.Text = $"{this.Resault.Text}0";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error");
+            }
         }
 
         private void Dot_Click(object sender, RoutedEventArgs e)
         {
             this.Resault.Text = $"{this.Resault.Text},";
+            this.Dot.IsEnabled = false;
+            this.Zero.IsEnabled = true;
         }
 
         private void Resault_Button_Click(object sender, RoutedEventArgs e)
@@ -274,7 +291,12 @@ namespace Calculator
             {
                 ResClass.b = Convert.ToDouble(this.Resault.Text);
                 if (ResClass.b == 0 && ResClass.operation == 4) MessageBox.Show("You can't do it because of 'Zero' number");
-                else this.Resault.Text = $"{ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b).ToString()}";
+                else
+                {
+                    ResClass.Resault = ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b);
+                    
+                    this.Resault.Text = $"{ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b).ToString()}";
+                }
                 ResClass.operation = 0;
             }
             catch (Exception ex)
@@ -284,3 +306,17 @@ namespace Calculator
         }
     }
 }
+
+//this.Resault.Text = $"{ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b).ToString()}"
+
+/*ResClass.Resault_copy = ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b).ToString();
+                    if (ResClass.Resault_copy.Length > 12 && ResClass.Resault_copy.Contains(',') == true)
+                    {
+
+                    }
+                    else if (ResClass.Resault_copy.Length > 12 && ResClass.Resault_copy.Contains(',') == false)
+                    {
+                        ResClass.Resault = ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b);
+                        this.Resault.Text = $"{Math.Round(ResClass.Resault * Math.Pow(10, -(ResClass.Resault_copy.Length - 1)), 2)}*E{ResClass.Resault_copy.Length - 1}";
+                    }
+                    else this.Resault.Text = $"{ResClass.Get_Resault(ResClass.operation, ResClass.a, ResClass.b).ToString()}";*/

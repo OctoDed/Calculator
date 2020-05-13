@@ -22,7 +22,7 @@
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
                 <Button x:Name="ClearAll_Button" Grid.Column="0" Margin="10" Content="C" FontSize="50" Background="White" Click="ClearAll_Button_Click" Foreground="Black" BorderBrush="#FF8F8F8F" />
-                <TextBox Grid.Column="1" x:Name="Resault" Margin="10" BorderBrush="white" FontSize="40" IsEnabled="False" Background="White"/>
+                <TextBox Grid.Column="1" x:Name="Resault"  Margin="10" BorderBrush="white" FontSize="40" IsEnabled="False" Background="White" MaxLength="12" MaxLines="1"/>
             </Grid>
                        
         </StackPanel>
