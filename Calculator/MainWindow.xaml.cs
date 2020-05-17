@@ -362,6 +362,7 @@ namespace Calculator
                     if (ResClass.operation == 0)
                     {
                         this.Resault.Text = "0";
+                        ResClass.operation = 7;
                     }
                     else this.Resault.Text = $"{this.Resault.Text}0";
                 }
